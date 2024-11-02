@@ -30,8 +30,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -69,18 +72,18 @@ fun AnimatedProgressBar(progress: Float, animationDuration: Int) {
 @Composable
 fun ExitDialog(onDismiss: () -> Unit) {
     AlertDialog(onDismissRequest = { onDismiss() },
-        title = { Text(text = "Exit App?") },
-        text = { Text(text = "Are you sure you want to exit the app?") },
+        title = { Text(text = stringResource(R.string.exit_app)) },
+        text = { Text(text = stringResource(R.string.are_you_sure_you_want_to_exit_the_app)) },
         confirmButton = {
             TextButton(onClick = {
                 Process.killProcess(Process.myPid())
             }) {
-                Text(text = "Yes")
+                Text(text = stringResource(R.string.yes))
             }
         },
         dismissButton = {
             TextButton(onClick = { onDismiss() }) {
-                Text(text = "No")
+                Text(text = stringResource(R.string.no))
             }
         })
 
@@ -112,7 +115,7 @@ fun RaceTrackerAppTopBar(
                     .width(40.dp),
                 painter = painterResource(id = R.drawable.ic_next_races),
                 tint = Color.White,
-                contentDescription = "Next Race Icon"
+                contentDescription = stringResource(R.string.next_race_icon)
             )
 
         },
@@ -144,7 +147,7 @@ fun FilterRaceCategoryCbMenu(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            text = "Filter Races:-",
+            text = stringResource(R.string.filter_races),
             modifier = Modifier.padding(start = 8.dp, end = 4.dp),
             style = TextStyle(
                 color = ColorPrimary,
@@ -168,10 +171,14 @@ fun FilterRaceCategoryCbMenu(
                     contentDescription = item.categoryName
                 )
 
+                val context = LocalContext.current
                 Checkbox(
                     checked = checkedState.getOrNull(index) ?: false,
                     onCheckedChange = { checked ->
                         onCheckedChange(index, checked)
+                    },
+                    modifier = Modifier.semantics {
+                        contentDescription = context.getString(R.string.filter_checkbox_for) + item.categoryName
                     }
                 )
             }

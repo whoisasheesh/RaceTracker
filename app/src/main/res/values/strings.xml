@@ -8,4 +8,11 @@
     <string name="next_race_no_stress">Next Race?\n        No Stress!</string>
     <string name="racetracker_app_logo">RaceTracker App Logo</string>
     <string name="nextup">NextUp</string>
+    <string name="filter_races">Filter Races:-</string>
+    <string name="next_race_icon">Next Race Icon</string>
+    <string name="exit_app">Exit App?</string>
+    <string name="are_you_sure_you_want_to_exit_the_app">Are you sure you want to exit the app?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="filter_checkbox_for">"Filter checkbox for "</string>
 </resources>

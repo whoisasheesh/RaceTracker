@@ -124,6 +124,7 @@ class RaceListViewModel @Inject constructor(
 
                     is RaceState.Error -> {
                         _nextToGoRaces.value.clear()
+                        _raceState.value = state
                     }
 
                     is RaceState.Loading -> {}
