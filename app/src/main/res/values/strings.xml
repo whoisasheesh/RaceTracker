@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RaceTracker</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="msg_no_internet_connection">Please fix your internet connection.</string>
+    <string name="msg_no_connection">No Connection</string>
+    <string name="msg_having_trouble">Having trouble loading that one..</string>
+    <string name="inspired_by_neds">Inspired by\n    Neds</string>
+    <string name="next_race_no_stress">Next Race?\n        No Stress!</string>
+    <string name="racetracker_app_logo">RaceTracker App Logo</string>
+    <string name="nextup">NextUp</string>
+</resources>
