@@ -72,11 +72,21 @@ The following primary dependencies are configured to support the app’s archite
 - When the race disappear after one minute past advertised time, the updated list will be fetched from the local database.
 
 # Testing
-The Race Tracker app includes unit tests to validate its core functionality, particularly focusing on the ViewModel layer to ensure robust data handling and filtering logic.
-- Verify that the RaceListViewModel correctly fetches and filters races.
+Covers the unit tests to validate its core functionality, particularly focusing on the Race List View Model to ensure robust data handling and filtering logic.
+- Verify that the RaceListViewModel correctly observe connectivity, fetches and filters next to go races.
 
 # Accessibility
 The app includes accessibility features, such as labels and descriptions, to ensure it is usable for people with visual impairments. Voice-over functionality and screen reader support have been implemented where necessary.
 
 TODO:- Adding screen record video with App Use to demonstrate scalability and font scale changes and accessibility.
+
+Note: The built-in screen recorder captures multimedia audio but does not record the accessibility channel, which is used for TalkBack speech output.
+
+**Accessing TalkBack for VoiceOver Navigation:**
+To use TalkBack accessibility in the Race Tracker app, follow these steps:
+1.	Open Settings on your device.
+2.	Navigate to Accessibility.
+3.	Enable TalkBack by toggling it on.
+4.	Select the Race Tracker app from the app list.
+5.	Navigate through the app; TalkBack will provide spoken descriptions of the app components.
 
