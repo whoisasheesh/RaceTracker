@@ -66,7 +66,7 @@ class RaceRepositoryImpl @Inject constructor(
                 raceSummaryDao.getRaceSummariesByCategory(categoryIds).first()
             }
             if (raceSummaries.isEmpty()) {
-                emit(RaceState.Error("No race summaries found for selected category!"))
+                emit(RaceState.Error("No upcoming races found for selected category!"))
             } else {
                 val raceSummaryList = raceSummaries.mapToDomain()
                 emit(RaceState.Success(raceSummaryList))
