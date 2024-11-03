@@ -79,7 +79,7 @@ fun RaceItem(race: RaceSummary) {
 
             categoryIconId?.let { painterResource(id = it) }?.let {
                 Icon(
-                    painter = it, contentDescription = null,
+                    painter = it, contentDescription = RaceCategory.fromCategoryId(race.category_id)?.categoryName,
                     modifier = Modifier
                         .padding(start = 8.dp, end = 8.dp)
                         .size(40.dp),
