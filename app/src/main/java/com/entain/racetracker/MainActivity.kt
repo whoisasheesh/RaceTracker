@@ -21,10 +21,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent{
-//            RaceTrackerAppTheme {
                 Surface(modifier = Modifier.safeContentPadding()) {
                     RootNavigation()
-//                }
             }
         }
     }

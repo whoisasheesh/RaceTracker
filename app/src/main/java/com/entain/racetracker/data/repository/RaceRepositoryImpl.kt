@@ -20,14 +20,19 @@ class RaceRepositoryImpl @Inject constructor(
 ) : RaceRepository {
     override fun fetchNextToGoRaces(currentTimeInSec: Long): Flow<RaceState<List<RaceSummary>>> =
         flow {
+            // Emiting a loading state when the data is being fetched
             emit(RaceState.Loading())
             try {
+                // fetching the next to go races from the API
                 val raceResponseData = apiService.getNextToGoRaces()
+
+                // filtering the race summaries to include the race that is below one minute past the advertised time along with other races
                 val raceSummaries = raceResponseData.data.race_summaries.values
                     .filter { it.advertised_start.seconds >= currentTimeInSec - 60 }
                     .toList()
-                    .mapToEntity()
+                    .mapToEntity() // mapping the race summaries to database entity
 
+                // once done clearing the race summary dao and adding the next to go races in the race summary dao
                 raceSummaryDao.runInTransaction {
                     raceSummaryDao.clearRaceSummaries()
                     raceSummaryDao.insertRaceSummaries(raceSummaries)
@@ -35,6 +40,8 @@ class RaceRepositoryImpl @Inject constructor(
 
                 val raceSummariesFromDb =
                     raceSummaryDao.getRaceSummaries().first().mapToDomain()
+
+                //mapping the race summaries from race summary dao to Domain and then emitted in the success state as below
                 emit(RaceState.Success(raceSummariesFromDb))
 
             } catch (e: Exception) {
@@ -51,6 +58,8 @@ class RaceRepositoryImpl @Inject constructor(
     ): Flow<RaceState<List<RaceSummary>>> = flow {
         try {
             raceSummaryDao.delExpiredRaceAfterOneMin(currentTimeInSec)
+
+            // Fetching race summaries based on the filtered race category IDs
             val raceSummaries = if (categoryIds.isEmpty()) {
                 raceSummaryDao.getRaceSummaries().first()
             } else {
