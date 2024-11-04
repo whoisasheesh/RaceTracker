@@ -83,8 +83,6 @@ Covers the unit tests to validate its core functionality, particularly focusing 
 # Accessibility
 The app includes accessibility features, such as labels and descriptions, to ensure it is usable for people with visual impairments. Voice-over functionality and screen reader support have been implemented where necessary.
 
-TODO:- Adding screen record video with App Use to demonstrate scalability and font scale changes and accessibility.
-
 Note: The built-in screen recorder captures multimedia audio but does not record the accessibility channel, which is used for TalkBack speech output.
 
 **Accessing TalkBack for VoiceOver Navigation:**
