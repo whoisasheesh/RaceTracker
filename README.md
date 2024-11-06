@@ -65,6 +65,11 @@ The following primary dependencies are configured to support the app’s archite
 - **Swipe to Refresh** : User can swipe to refresh within the Race List screen to fetch the latest upcoming races.
 - **Automatic Refresh**: The race list is updated as soon as the races are past one minute from advertised time, removing past races and updating based on the selected category.
 
+# Screen Recording Showcasing User Interaction
+Below is the screen recording of a user interacting with the race tracker app to demonstrate its features and smooth transition during the orientation changes as well as font size changes throughout the system.
+
+https://github.com/user-attachments/assets/3a613de2-80f7-456b-8853-b218faf53637
+
 # API Integration and Data Handling Logic
  **Api endpoint**: GET https://api.neds.com.au/rest/v1/racing/?method=nextraces&count=10
 - Data is fetched in JSON format and stored locally using Room database.
@@ -77,8 +82,6 @@ Covers the unit tests to validate its core functionality, particularly focusing 
 
 # Accessibility
 The app includes accessibility features, such as labels and descriptions, to ensure it is usable for people with visual impairments. Voice-over functionality and screen reader support have been implemented where necessary.
-
-TODO:- Adding screen record video with App Use to demonstrate scalability and font scale changes and accessibility.
 
 Note: The built-in screen recorder captures multimedia audio but does not record the accessibility channel, which is used for TalkBack speech output.
 
